@@ -1,0 +1,68 @@
+// VARIABLES
+$font-color: rgb(46, 53, 50);
+//$font-family: "Noto Sans JP", sans-serif;
+$font-family: "Barlow", sans-serif;
+
+// MIXINS
+@mixin flexDisplay($flow, $wrap, $justify, $alignment) {
+	display: flex;
+	flex-flow: $flow $wrap;
+	justify-content: $justify;
+	align-items: $alignment;
+}
+
+// STYLES
+* {
+	margin: 0;
+	border: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+	background-color: rgb(84, 188, 201);
+	font-family: $font-family;
+}
+.main {
+	max-height: 100vh;
+	.header {
+		height: 10vh;
+		@include flexDisplay(row, nowrap, center, center);
+		.header-title {
+			p {
+				color: $font-color;
+				font-size: 48px;
+			}
+		}
+	}
+	.container {
+		@include flexDisplay(column, nowrap, space-around, center);
+		height: 80vh;
+		width: 90vw;
+		transform: translateX(5vw);
+
+		.cat-text {
+			@include flexDisplay(row, nowrap, space-around, center);
+			.fact-paragraph {
+				font-size: 24px;
+				padding: 2vh 4vw;
+				color: $font-color;
+				text-align: center;
+			}
+		}
+
+		.cat-img-container {
+			.cat-image {
+				max-height: 55vh;
+				max-width: 45vw;
+			}
+		}
+	}
+	.footer {
+		height: 10vh;
+		@include flexDisplay(row, nowrap, center, center);
+		a {
+			color: $font-color;
+			text-decoration: none;
+			font-size: 22px;
+			margin: 0px 5px;
+		}
+	}
+}
